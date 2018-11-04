@@ -3,7 +3,7 @@ Good judgment of object type.
 
 # install
 ```
-$ npm install --save isType
+$ npm install is-obj-type
 ```
 
 # Example

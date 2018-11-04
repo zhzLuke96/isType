@@ -38,14 +38,13 @@ is.plain = obj => {
     // var Ctor = Object.prototype.hasOwnProperty.call(proto, "constructor") && proto.constructor;
     // return typeof Ctor === "function" && Ctor.toString() === Object.hasOwnProperty.toString.call(Object);
     // ------
-    // *2 way 
+    // *2 way
     // *Object.create(null) => false
     //
-    // If only inherit two layers, then it is a plain object.
+    // only prototype-chain two layers, then it is a plain object.
     var proto = obj && Object.getPrototypeOf(obj),
         supper = proto && Object.getPrototypeOf(proto);
-    if (proto && !supper) return true;
-    return false;
+    return proto && !supper;
 }
 is.num = is("number");
 is.arr = is("array");

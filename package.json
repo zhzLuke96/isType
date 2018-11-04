@@ -1,0 +1,39 @@
+{
+  "name": "istype",
+  "version": "1.0.0",
+  "description": "Good judgment of object type.",
+  "author": "zhzluke96",
+  "main": "index.js",
+  "scripts": {
+    "browserify": "browserify index.js -s isType | uglifyjs --compress --mangle -o browser/isType.min.js",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhzLuke96/isType.git"
+  },
+  "keywords": [
+    "check",
+    "typeof",
+    "javascript",
+    "kind",
+    "kind-of",
+    "is-obj",
+    "is",
+    "object-type",
+    "type",
+    "object",
+    "plain-object",
+    "plain"
+  ],
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/zhzLuke96/isType/issues"
+  },
+  "homepage": "https://github.com/zhzLuke96/isType#readme",
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "uglify-js": "^3.4.9",
+    "uglify-js-es6": "^2.8.9"
+  }
+}

@@ -79,6 +79,7 @@ test.true(is.plain(new Object()));
 // test.true(is.plain(Object.create(null))); // 1 way case
 test.false(is.plain(Object.create(null)));
 test.false(is.plain(Object.create({})));
+test.false(is.plain(new function(){}));
 test.false(is.plain(0));
 test.false(is.plain(null));
 test.false(is.plain([]));
@@ -98,5 +99,9 @@ var isSomecls = is("somecls");
 test.true(isSomecls(clsObj))
 test.false(isSomecls(Object.create(null)));
 
+// is all
+var isSomeOrCls = is.all("some","somecls");
+test.true(isSomeOrCls(sObj));
+test.true(isSomeOrCls(clsObj));
 
 console.log("test done.");

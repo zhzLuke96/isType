@@ -26,12 +26,26 @@ is.all = (...types) => obj => {
 
 // Return `true` if the given `value` is an object created by the `Object` constructor.
 is.plain = obj => {
-    // base object && dom && global
-    if (!obj || Object.prototype.toString.call(obj) !== "[object Object]") return false;
-    // null or undefined
-    if (!obj.prototype) return true;
-    var Ctor = Object.prototype.hasOwnProperty.call(obj.prototype, "constructor") && obj.prototype.constructor;
-    return typeof Ctor === "function" && Ctor.toString() === Object.hasOwnProperty.toString.call(Object);
+    // ------
+    // *1 way
+    // *Object.create(null) => true
+    //
+    // // base object && dom && global
+    // if (!obj || Object.prototype.toString.call(obj) !== "[object Object]") return false;
+    // // null or undefined
+    // var proto = Object.getPrototypeOf(obj);
+    // if (!proto) return true;
+    // var Ctor = Object.prototype.hasOwnProperty.call(proto, "constructor") && proto.constructor;
+    // return typeof Ctor === "function" && Ctor.toString() === Object.hasOwnProperty.toString.call(Object);
+    // ------
+    // *2 way 
+    // *Object.create(null) => false
+    //
+    // If only inherit two layers, then it is a plain object.
+    var proto = obj && Object.getPrototypeOf(obj),
+        supper = proto && Object.getPrototypeOf(proto);
+    if (proto && !supper) return true;
+    return false;
 }
 is.num = is("number");
 is.arr = is("array");

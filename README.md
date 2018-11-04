@@ -1,4 +1,4 @@
-# isType
+# is-obj-type
 Good judgment of object type.
 
 # install
@@ -8,7 +8,7 @@ $ npm install --save isType
 
 # Example
 ```js
-const is = require('isType');
+const is = require('is-obj-type');
 console.log(is.num(2));
 
 var some = function(){

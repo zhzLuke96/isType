@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "browserify": "browserify index.js -s isType | uglifyjs --compress --mangle -o browser/isType.min.js",
-    "test": "node test.js"
+    "test": "node test/test.js"
   },
   "repository": {
     "type": "git",
